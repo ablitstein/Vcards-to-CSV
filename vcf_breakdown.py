@@ -6,6 +6,10 @@ import sys
 
 
 def create_file_list():
+    '''
+        inputs: none
+        outputs: a list of all .vcf files within the current directory
+    '''
     file_list = []
     for word in os.listdir():
         if".vcf" in word:
@@ -22,8 +26,8 @@ def clean_entry(field):
 
 def read_vcf(file):
     '''
-    inputs: file path with .vcf files
-    outputs: a dictionary form of the .vcf file
+        inputs: file path with .vcf files
+        outputs: a dictionary form of the .vcf file
     '''
     with open(file, 'r') as f:
         lines = [l.split(':') for l in f]# if not l.startswith('#')]
