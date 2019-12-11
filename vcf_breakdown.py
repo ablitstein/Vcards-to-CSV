@@ -18,10 +18,10 @@ def create_file_list():
     return file_list
 
 def clean_entry(field):
-    g = field.replace('\n','')
-    g = g.replace(';;',';')
-    g = g.replace(';',' ')
-    g = g.replace('=0D=0A=','')
+    g = field.replace('\n', '')
+    g = g.replace(';;', ';')
+    g = g.replace(';', ' ')
+    g = g.replace('=0D=0A=', '')
     return g
 
 def read_vcf(file):
@@ -35,7 +35,7 @@ def read_vcf(file):
         dt = {}
 
         for d in tup_lin:
-            if len(d)==2:
+            if len(d) == 2:
                 dt.update({d[0]:clean_entry(d[1])})
         return dt
 
@@ -47,7 +47,7 @@ def create_df(file_list):
     d_list = [read_vcf(item) for item in file_list]
 
     db = pd.DataFrame(d_list)
-    db.drop(['BEGIN', 'END','X-MS-OL-DEFAULT-POSTAL-ADDRESS','VERSION'], axis=1, inplace=True)
+    db.drop(['BEGIN', 'END', 'X-MS-OL-DEFAULT-POSTAL-ADDRESS', 'VERSION'], axis=1, inplace=True)
     return db
 
 
