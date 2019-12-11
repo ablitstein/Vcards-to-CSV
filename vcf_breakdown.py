@@ -11,7 +11,7 @@ def create_file_list():
     '''
     file_list = []
     for word in os.listdir():
-        if".vcf" in word:
+        if ".vcf" in word:
             file_list.append(word)
 
     return file_list
